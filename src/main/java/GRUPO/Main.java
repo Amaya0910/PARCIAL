@@ -103,7 +103,7 @@ public static void registrarAdministrador() {
             }
         }
         if(adminEncontrado == null){
-            System.out.println("EL ADMINISTRADOR NO EXISTE");
+            System.out.println("EL ADMINISTRADOR NO EXISTE.");
         }else{
             System.out.println("NOMBRE\t- CEDULA\t - EMAIL\t - CURSO\t - FECHA INGRESO\n");
             for(Estudiante A: estudiantes){
