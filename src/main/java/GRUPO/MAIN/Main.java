@@ -1,10 +1,8 @@
-package GRUPO;
+package GRUPO.MAIN;
 
 import GRUPO.LOGICA.Administrador;
 import GRUPO.LOGICA.Estudiante;
-import GRUPO.LOGICA.Usuario;
 
-import java.nio.channels.ScatteringByteChannel;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -20,7 +18,8 @@ public class Main {
         do {
             System.out.println("1. REGISTRAR USUARIO" +
                     "\n2. VER ESTUDIANTES" +
-                    "\n3. SALIR");
+                    "\n3. VER ADMINISTRADOR" +
+                    "\n4. SALIR");
 
             N = sc.nextInt();
 
@@ -29,7 +28,7 @@ public class Main {
                     break;
                 case 2: verEstudiantes();
                     break;
-                case 3:
+                case 3: verAdministradores();
                     break;
                 case 4:
                     break;
@@ -49,10 +48,12 @@ public class Main {
             N = sc.nextInt();
             switch (N) {
                 case 1: registrarEstudiante();
+                N=3;
                     break;
                 case 2: registrarAdministrador();
+                N=3;
                     break;
-                case 3: verAdministradores();
+                case 3:
                     break;
                 default:
                     System.out.println("ERROR INVALID OPTION");
@@ -73,7 +74,7 @@ public static void registrarEstudiante() {
         e.setEmail(sc.next());
         System.out.println("INGRESE CURSO: ");
         e.setCurso(sc.next());
-        System.out.println("INGRESE FECHA: ");
+        System.out.println("INGRESE FECHA DE INGRESO (dd/MM/yyyy): ");
         String fechaIngreso = sc.next();
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
         estudiantes.add(e);
@@ -81,7 +82,7 @@ public static void registrarEstudiante() {
 
 public static void registrarAdministrador() {
         Scanner sc = new Scanner(System.in);
-        Estudiante e = new Estudiante();
+        Administrador e = new Administrador();
         System.out.println("INGRESE NOMBRE: ");
         e.setNombre(sc.next());
         System.out.println("INGRESE CEDULA: ");
@@ -97,15 +98,18 @@ public static void registrarAdministrador() {
         Scanner sc = new Scanner(System.in);
         System.out.println("INGRESE SU CEDULA: ");
         String ced = sc.nextLine();
+        System.out.println("INGRESE SU CONTRASEÑA: ");
+        String con = sc.nextLine();
         Administrador adminEncontrado = new Administrador();
         adminEncontrado = null;
         for(Administrador A: administradores){
-            if(ced.equals(A.getCedula())){
+            if(ced.equals(A.getCedula()) && con.equals(A.getContraseña())){
                 adminEncontrado = A;
             }
         }
         if(adminEncontrado == null){
             System.out.println("EL ADMINISTRADOR NO EXISTE.");
+
         }else{
             System.out.println("NOMBRE\t- CEDULA\t - EMAIL\t - CURSO\t - FECHA INGRESO\n");
             for(Estudiante A: estudiantes){
@@ -131,7 +135,7 @@ public static void registrarAdministrador() {
         if(adminEncontrado == null){
             System.out.println("EL ADMINISTRADOR NO EXISTE.");
         }else{
-            System.out.println("NOMBRE\t- CEDULA\t - EMAIL\t - CURSO\t - FECHA INGRESO\n");
+            System.out.println("NOMBRE\t- CEDULA\t - EMAIL\n");
             for(Administrador A: administradores){
                 A.mostrarAdministrador();
             }

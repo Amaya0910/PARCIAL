@@ -12,7 +12,7 @@ public class Administrador extends Usuario implements Permisos {
     @Override
 
     public String getRol() {
-        return "ADMINISTRADOR";
+        return "ADMINISTRADOR.";
     }
 
     private String email;

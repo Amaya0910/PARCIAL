@@ -16,7 +16,7 @@ import java.util.Scanner;
 public class Estudiante extends Usuario implements Permisos {
     @Override
     public String getRol() {
-            return "ESTUDIANTE";
+            return "ESTUDIANTE.";
     }
 
     private String email;

@@ -9,7 +9,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @Getter
 @Setter
-public class Usuario {
+public class Usuario  {
     private String nombre;
     private String cedula;
     private String contraseña;
