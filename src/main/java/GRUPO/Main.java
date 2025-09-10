@@ -31,11 +31,13 @@ public class Main {
                     break;
                 case 3:
                     break;
+                case 4:
+                    break;
                 default:
                     System.out.println("ERROR INVALID OPTION");
 
             }
-        }while(N !=3);
+        }while(N !=4);
     }
 
 
@@ -50,7 +52,7 @@ public class Main {
                     break;
                 case 2: registrarAdministrador();
                     break;
-                case 3:
+                case 3: verAdministradores();
                     break;
                 default:
                     System.out.println("ERROR INVALID OPTION");
@@ -108,6 +110,30 @@ public static void registrarAdministrador() {
             System.out.println("NOMBRE\t- CEDULA\t - EMAIL\t - CURSO\t - FECHA INGRESO\n");
             for(Estudiante A: estudiantes){
                 A.verEstudiante();
+            }
+        }
+
+
+
+    }
+
+    public static void verAdministradores(){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("INGRESE SU CEDULA: ");
+        String ced = sc.nextLine();
+        Administrador adminEncontrado = new Administrador();
+        adminEncontrado = null;
+        for(Administrador A: administradores){
+            if(ced.equals(A.getCedula())){
+                adminEncontrado = A;
+            }
+        }
+        if(adminEncontrado == null){
+            System.out.println("EL ADMINISTRADOR NO EXISTE.");
+        }else{
+            System.out.println("NOMBRE\t- CEDULA\t - EMAIL\t - CURSO\t - FECHA INGRESO\n");
+            for(Administrador A: administradores){
+                A.mostrarAdministrador();
             }
         }
 

@@ -3,7 +3,6 @@ package GRUPO.LOGICA;
 
 import lombok.*;
 
-import java.util.Scanner;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -11,6 +10,7 @@ import java.util.Scanner;
 @Setter
 public class Administrador extends Usuario implements Permisos {
     @Override
+
     public String getRol() {
         return "ADMINISTRADOR";
     }
@@ -18,7 +18,7 @@ public class Administrador extends Usuario implements Permisos {
     private String email;
 
 
-    public void mostrarAdministrador(Administrador administrador){
-        System.out.println(administrador.getNombre() + "\t - " + administrador.getCedula() + "\t - " + administrador.getEmail() );
+    public void mostrarAdministrador(){
+        System.out.println(getNombre() + "\t - " + getCedula() + "\t - " + getEmail() );
     }
 }
